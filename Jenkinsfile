@@ -32,5 +32,16 @@ pipeline {
 				echo "test"
 			}
 		}
+	} 
+	post {
+		always {
+			echo "Do something"
+		}
+		success {
+			echo "Success something"
+		}
+		failure {
+			echo "Failure something"
+		}
 	}
 }
