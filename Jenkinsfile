@@ -32,7 +32,5 @@ pipeline {
 				echo "test"
 			}
 		}
-		
 	}
-	
 }
