@@ -13,11 +13,13 @@
 // }
 
 pipeline {
-	agent any
+	// agent any
+	agent { docker { image 'python:alpine' } }
 	stages {
 		stage('Build') {
 			steps {
 				echo "Build"
+				sh 'python --version'
 			}
 		}
 
@@ -43,5 +45,7 @@ pipeline {
 		failure {
 			echo "Failure something"
 		}
+
+		// changed -> when status changed so added message to slack 
 	}
 }
