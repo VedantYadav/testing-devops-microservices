@@ -15,11 +15,18 @@
 pipeline {
 	// agent any
 	agent { docker { image 'python:alpine' } }
+
+	environment {
+		dockerDir = tool 'myDocker'
+		PATH = "$dockerDir/bin"
+	}
+
 	stages {
 		stage('Build') {
 			steps {
 				echo "Build"
 				sh 'python --version'
+				sh 'docker version'
 				echo "$PATH"
 				echo "$env.BUILD_NUMBER"
 				echo "$env.BUILD_ID"
