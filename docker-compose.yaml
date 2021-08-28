@@ -1,0 +1,26 @@
+version: "3.9"
+services: 
+  world-docker:
+    build: ./world
+    ports: 
+      - "5001:5001"
+    restart: always
+    networks:
+      - hello-world-network
+
+  hello-docker:
+    build: ./hello
+    ports: 
+      - "5000:5000"
+    restart: always
+    environment: 
+      URL: http://world-docker
+      PORT: 5001
+    depends_on: 
+      - world-docker
+    networks: 
+      - hello-world-network
+
+networks: 
+  hello-world-network:
+    
