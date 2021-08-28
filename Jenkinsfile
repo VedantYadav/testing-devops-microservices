@@ -20,6 +20,12 @@ pipeline {
 			steps {
 				echo "Build"
 				sh 'python --version'
+				echo "$PATH"
+				echo "$env.BUILD_NUMBER"
+				echo "$env.BUILD_ID"
+				echo "$env.JOB_NAME"
+				echo "$env.BUILD_TAG"
+				echo "$env.JOB_URL"
 			}
 		}
 
